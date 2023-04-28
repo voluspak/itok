@@ -4,13 +4,13 @@ const profileLink: string = ''
 
 const Controls: React.FC = () => {
   return (
-    <ul>
+    <ul className='absolute right-3 bottom-3 flex flex-col justify-end items-center gap-5'>
       <li><ProfileControl profileLink={profileLink} /></li>
-      <li>.</li>
-      <li>.</li>
-      <li>.</li>
-      <li>.</li>
-      <li>.</li>
+      <li><ProfileControl profileLink={profileLink} /></li>
+      <li><ProfileControl profileLink={profileLink} /></li>
+      <li><ProfileControl profileLink={profileLink} /></li>
+      <li><ProfileControl profileLink={profileLink} /></li>
+      <li><ProfileControl profileLink={profileLink} /></li>
     </ul>
   )
 }
