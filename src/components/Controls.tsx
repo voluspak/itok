@@ -1,3 +1,4 @@
+import CommentsControl from './CommentsControl'
 import LikeControl from './LikeControl'
 import ProfileControl from './ProfileControl'
 
@@ -8,7 +9,7 @@ const Controls: React.FC = () => {
     <ul className='absolute right-3 bottom-3 flex flex-col justify-end items-center gap-5'>
       <li><ProfileControl profileLink={profileLink} /></li>
       <li><LikeControl /></li>
-      <li><ProfileControl profileLink={profileLink} /></li>
+      <li><CommentsControl /></li>
       <li><ProfileControl profileLink={profileLink} /></li>
       <li><ProfileControl profileLink={profileLink} /></li>
       <li><ProfileControl profileLink={profileLink} /></li>
