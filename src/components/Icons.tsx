@@ -41,3 +41,17 @@ export const DislikeIcon: React.FC<L> = ({ className }) => (
   </svg>
 
 )
+
+export const BookmarkIcon: React.FC = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+  </svg>
+
+)
+
+export const ShareIcon: React.FC = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="text-white h-10 w-10" fill="white">
+    <path d="M512 255.995 277.045 65.394v103.574h-57.542c-208.59 0-249.35 153.44-201.394 266.128 9.586-103.098 142.053-100.701 237.358-100.701h21.578v112.211L512 255.995z"/>
+  </svg>
+
+)

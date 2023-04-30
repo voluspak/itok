@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { CloseIcon, CommentsIcon, DislikeIcon, LikeIcon } from './Icons'
 import Image from 'next/image'
-import { useLike } from '@/hooks/useLike'
+import { useInteraction } from '@/hooks/useInteraction'
 
 interface ListProps {
   toggleComments: () => void
@@ -26,8 +26,8 @@ const CommentsControl: React.FC = () => {
 export default CommentsControl
 
 const ListOfComments: React.FC<ListProps> = ({ toggleComments, isOpen }) => {
-  const { like, onLikeVideo } = useLike()
-  const { like: dislike, onLikeVideo: onDislikeComment } = useLike()
+  const { interaction: like, onInteraction: onLikeComment } = useInteraction({ initialValue: 0 })
+  const { interaction: dislike, onInteraction: onDislikeComment } = useInteraction({ initialValue: 0 })
   const suggestedSearch = {
     label: 'Example',
     link: 'https://github.com/voluspak'
@@ -133,7 +133,7 @@ const ListOfComments: React.FC<ListProps> = ({ toggleComments, isOpen }) => {
                 </div>
 
                 <div className='flex items-center gap-4'>
-                  <button onClick={onLikeVideo} className='flex gap-1'>
+                  <button onClick={onLikeComment} className='flex gap-1'>
                     <LikeIcon className={`w-4 h-4 rounded-full active:animate-likeVideo ${like ? 'text-red-500 fill-red-500' : 'text-black fill-white'} overflow-hidden`} />
                     <p>{comment.likes}</p>
                   </button>

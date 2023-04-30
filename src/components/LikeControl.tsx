@@ -1,17 +1,17 @@
 import { LikeIcon } from './Icons'
-import { useLike } from '@/hooks/useLike'
+import { useInteraction } from '@/hooks/useInteraction'
 
 const LikeControl: React.FC = () => {
-  const { onLikeVideo, like, likeCount } = useLike()
+  const { onInteraction, interaction, interactionCount } = useInteraction({ initialValue: 0 })
   return (
     <>
     <button
-      onClick={onLikeVideo}
+      onClick={onInteraction}
     >
       <LikeIcon
-        className={`w-10 h-10 rounded-full active:animate-likeVideo ${like ? 'text-red-500 fill-red-500' : 'text-white fill-white'} overflow-hidden`}
+        className={`w-10 h-10 rounded-full active:animate-likeVideo ${interaction ? 'text-red-500 fill-red-500' : 'text-white fill-white'} overflow-hidden`}
       />
-      <span>{likeCount}</span>
+      <span>{interactionCount}</span>
     </button>
   </>
   )

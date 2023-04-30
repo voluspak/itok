@@ -1,6 +1,8 @@
+import BookmarkControl from './BookmarkControl'
 import CommentsControl from './CommentsControl'
 import LikeControl from './LikeControl'
 import ProfileControl from './ProfileControl'
+import ShareControl from './ShareControl'
 
 const profileLink: string = ''
 
@@ -10,8 +12,8 @@ const Controls: React.FC = () => {
       <li><ProfileControl profileLink={profileLink} /></li>
       <li><LikeControl /></li>
       <li><CommentsControl /></li>
-      <li><ProfileControl profileLink={profileLink} /></li>
-      <li><ProfileControl profileLink={profileLink} /></li>
+      <li><BookmarkControl /></li>
+      <li><ShareControl /></li>
       <li><ProfileControl profileLink={profileLink} /></li>
     </ul>
   )
