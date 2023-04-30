@@ -1,5 +1,6 @@
+import BottomNav from '@/components/BottomNav'
 import Controls from '@/components/Controls'
-import { HomeIcon, MagnifyingGlass } from '@/components/Icons'
+import { MagnifyingGlass } from '@/components/Icons'
 import Link from 'next/link'
 import { type FC } from 'react'
 
@@ -16,29 +17,7 @@ const Home: FC = () => {
         </nav>
 
         <Controls />
-
-        <nav className='absolute bottom-0 left-0 right-0 h-12 py-2 border-t border-zinc-500 bg-black text-white'>
-          <ul className='flex justify-evenly items-center'>
-            <li>
-              <Link href={'/'} className='flex flex-col justify-center items-center'>
-                <HomeIcon />
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href={'/'}>Friends</Link>
-            </li>
-            <li>
-              <Link href={'/'}>+</Link>
-            </li>
-            <li>
-              <Link href={'/'}>Inbox</Link>
-            </li>
-            <li>
-              <Link href={'/'}>Profile</Link>
-            </li>
-          </ul>
-        </nav>
+        <BottomNav />
       </main>
     </>
   )
