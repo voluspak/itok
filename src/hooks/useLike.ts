@@ -1,6 +1,12 @@
 import { useState } from 'react'
 
-export const useLike = () => {
+interface useLikeReturns {
+  like: boolean
+  onLikeVideo: () => void
+  likeCount: number
+}
+
+export const useLike = (): useLikeReturns => {
   const [like, setLike] = useState(false)
   const [likeCount, setLikeCount] = useState(0)
 
