@@ -2,6 +2,10 @@ interface L {
   className: string
 }
 
+interface B extends L {
+  fill?: string
+}
+
 export const MagnifyingGlass: React.FC = () => (
   <svg xmlns="http://www.w3.org/2000/svg" aria-hidden fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-7 h-7">
     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -42,8 +46,8 @@ export const DislikeIcon: React.FC<L> = ({ className }) => (
 
 )
 
-export const BookmarkIcon: React.FC = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+export const BookmarkIcon: React.FC<B> = ({ className, fill }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={fill} strokeWidth={1.5} className={className}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
   </svg>
 
