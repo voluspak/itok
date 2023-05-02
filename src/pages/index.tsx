@@ -7,7 +7,7 @@ import { type FC } from 'react'
 const Home: FC = () => {
   return (
     <>
-      <main className='bg-black text-white max-w-sm w-full h-screen mx-auto p-3 relative text-xs'>
+      <main className='overflow-hidden bg-black text-white max-w-sm w-full h-screen mx-auto p-3 relative text-xs'>
         <nav className='relative'>
           <ul className='flex justify-center items-center gap-3'>
             <li><Link href={'/'}>Following</Link></li>

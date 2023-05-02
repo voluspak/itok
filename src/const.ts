@@ -9,3 +9,11 @@ export const ICONS_COLORS = {
   [ICONS_COLORS_REFERENCE.defaultColor]: 'text-white fill-white',
   [ICONS_COLORS_REFERENCE.bookmarkIcon]: 'fill-yellow-500'
 }
+
+export const OPTIONS = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': process.env.API_KEY,
+    'X-RapidAPI-Host': 'tiktok-all-in-one.p.rapidapi.com'
+  }
+}
