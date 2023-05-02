@@ -1,13 +1,15 @@
 import BottomNav from '@/components/BottomNav'
 import Controls from '@/components/Controls'
 import { MagnifyingGlass } from '@/components/Icons'
+import VideoListContainer from '@/components/VideoListContainer'
 import Link from 'next/link'
 import { type FC } from 'react'
 
 const Home: FC = () => {
   return (
     <>
-      <main className='overflow-hidden bg-black text-white max-w-sm w-full h-screen mx-auto p-3 relative text-xs'>
+      <main className='overflow-hidden bg-black text-white max-w-sm w-full h-screen mx-auto relative text-xs'>
+        <VideoListContainer />
         <nav className='relative'>
           <ul className='flex justify-center items-center gap-3'>
             <li><Link href={'/'}>Following</Link></li>

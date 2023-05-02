@@ -15,6 +15,12 @@ module.exports = {
       },
       animation: {
         likeVideo: 'likeVideo 300ms linear'
+      },
+      spacing: {
+        video: 'calc(100vh - 56px)'
+      },
+      aspectRatio: {
+        'vertical-video': '9/16'
       }
     }
   },

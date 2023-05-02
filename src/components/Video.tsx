@@ -3,7 +3,11 @@ interface VideoProps {
 }
 const Video: React.FC<VideoProps> = ({ src }) => {
   return (
-    <video src={src} />
+    <div className="mb-14 snap-start h-video flex justify-center items-center">
+      <video loop controls className="h-video">
+        <source src={src} type="video/mp4" />
+      </video>
+    </div>
   )
 }
 
