@@ -18,7 +18,10 @@ export const useAutoPlay = (): React.LegacyRef<HTMLVideoElement> => {
       }
 
       if (entry.isIntersecting) {
-        videoElement.play().catch(console.error)
+        videoElement.play().catch(error => {
+          console.log('Hubo un error con el intersection observer')
+          console.log(error)
+        })
       }
     })
 
