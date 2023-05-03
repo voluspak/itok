@@ -2,6 +2,7 @@ import { type AwemeList } from '@/types'
 import { useEffect, useState } from 'react'
 
 const url = 'https://tiktok-all-in-one.p.rapidapi.com/feed?region=US&device_id=7523368224928586621'
+const apiKey = String(process.env.API_KEY)
 
 const useFeedVideos = (): AwemeList[] => {
   const [videos, setVideos] = useState<AwemeList[]>([])
@@ -10,7 +11,7 @@ const useFeedVideos = (): AwemeList[] => {
     fetch(url, {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '0d322a12e7mshde52d1409671e01p107fd1jsn667675247fe8',
+        'X-RapidAPI-Key': apiKey,
         'X-RapidAPI-Host': 'tiktok-all-in-one.p.rapidapi.com'
       }
     })
