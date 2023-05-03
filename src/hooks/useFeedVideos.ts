@@ -1,7 +1,7 @@
 import { type AwemeList } from '@/types'
 import { useEffect, useState } from 'react'
 
-const url = 'http://localhost:3000/api/hello'
+const url = '/api/hello'
 
 const useFeedVideos = (): AwemeList[] => {
   const [videos, setVideos] = useState<AwemeList[]>([])
