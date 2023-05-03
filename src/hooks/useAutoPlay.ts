@@ -7,14 +7,18 @@ export const useAutoPlay = (): React.LegacyRef<HTMLVideoElement> => {
     const video = videoRef.current
     if (video === null || video === undefined) return
 
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.target instanceof HTMLMediaElement) {
-        if (!entry.isIntersecting) {
-          entry.target.pause()
-        }
-        if (entry.isIntersecting) {
-          video.play().catch(console.error)
-        }
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries
+
+      const videoElement = entry.target as HTMLVideoElement
+
+      if (!entry.isIntersecting) {
+        videoElement.pause()
+        return
+      }
+
+      if (entry.isIntersecting) {
+        videoElement.play().catch(console.error)
       }
     })
 
