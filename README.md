@@ -4,6 +4,21 @@
 
 Una aplicación web que reproduce la funcionalidad y experiencia visual de TikTok, optimizada para dispositivos móviles y construida con tecnologías web modernas.
 
+## 📚 Índice
+
+- [Características Principales](#-características-principales)
+- [Tecnologías Implementadas](#️-tecnologías-implementadas)
+- [Arquitectura del Proyecto](#️-arquitectura-del-proyecto)
+- [Cómo Funciona](#-cómo-funciona)
+- [Características de la Interfaz](#-características-de-la-interfaz)
+- [Instalación y Ejecución](#-instalación-y-ejecución)
+- [Scripts Disponibles](#-scripts-disponibles)
+- [Despliegue](#-despliegue)
+- [API Externa](#-api-externa)
+- [Contribuciones](#-contribuciones)
+- [Licencia](#-licencia)
+- [Autor](#-autor)
+
 ## 🚀 Características Principales
 
 - **Interfaz móvil responsiva** - Diseño optimizado para smartphones que replica la UX de TikTok
@@ -47,12 +62,48 @@ itok/
 
 ## 🔄 Cómo Funciona
 
-### Flujo de Datos
-1. **Frontend solicita videos** - El componente React principal realiza una petición al endpoint interno
-2. **Backend actúa como proxy** - La API Route de Next.js recibe la solicitud del frontend
-3. **Llamada a API externa** - El backend realiza una petición a la API externa que proporciona videos en formato TikTok
-4. **Procesamiento de datos** - Los datos se procesan y adaptan al formato requerido por el frontend
-5. **Respuesta al cliente** - Los videos se envían al frontend para su renderizado
+### Diagrama de Flujo del Sistema
+
+```mermaid
+graph TB
+    A[👤 Usuario] --> B[📱 Frontend React]
+    B --> C{🔄 Solicitud de Videos}
+    C --> D[🛣️ Next.js API Route<br/>/api/videos]
+    D --> E{🌐 API Externa<br/>Videos TikTok}
+    E --> F[📦 Datos de Videos<br/>JSON Response]
+    F --> D
+    D --> G[⚙️ Procesamiento<br/>y Transformación]
+    G --> H[📤 Respuesta Formateada]
+    H --> B
+    B --> I[🎬 Renderizado<br/>de Videos]
+    I --> J[📱 Interfaz TikTok<br/>Mobile UI]
+    J --> A
+    
+    subgraph "🏗️ Next.js Application"
+        B
+        D
+        G
+    end
+    
+    subgraph "🌍 Servicios Externos"
+        E
+    end
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style D fill:#e8f5e8
+    style E fill:#fff3e0
+    style J fill:#fce4ec
+```
+
+### Flujo de Datos Detallado
+1. **👤 Interacción del Usuario** - El usuario accede a la aplicación desde su dispositivo móvil
+2. **📱 Frontend solicita videos** - El componente React principal realiza una petición al endpoint interno
+3. **🛣️ Backend actúa como proxy** - La API Route de Next.js (`/api/videos`) recibe la solicitud del frontend
+4. **🌐 Llamada a API externa** - El backend realiza una petición HTTP a la API externa que proporciona videos en formato TikTok
+5. **⚙️ Procesamiento de datos** - Los datos se procesan y adaptan al formato requerido por el frontend
+6. **📤 Respuesta al cliente** - Los videos procesados se envían al frontend para su renderizado
+7. **🎬 Renderizado de videos** - Los componentes React muestran los videos con la interfaz tipo TikTok
 
 ### Componentes Clave
 
