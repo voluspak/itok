@@ -10,10 +10,5 @@ export const ICONS_COLORS = {
   [ICONS_COLORS_REFERENCE.bookmarkIcon]: 'fill-yellow-500'
 }
 
-export const OPTIONS = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': process.env.API_KEY,
-    'X-RapidAPI-Host': 'tiktok-all-in-one.p.rapidapi.com'
-  }
-}
+export const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes in milliseconds
+export const VIDEO_POOL_SIZE = 20

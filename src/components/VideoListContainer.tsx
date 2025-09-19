@@ -10,7 +10,7 @@ const VideoListContainer: React.FC = () => {
       ? <Loading />
       : video.map(item => {
         return (
-      <Video src={item.video.download_addr.url_list[0]} key={item.aweme_id} />
+      <Video src={item.play} key={item.aweme_id} />
         )
       })}
     </section>
