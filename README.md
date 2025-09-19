@@ -1,38 +1,176 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# iTok - TikTok Clone
 
-## Getting Started
+> Réplica de TikTok (versión móvil) creada con Next.js, TypeScript y Tailwind CSS
 
-First, run the development server:
+Una aplicación web que reproduce la funcionalidad y experiencia visual de TikTok, optimizada para dispositivos móviles y construida con tecnologías web modernas.
 
+## 🚀 Características Principales
+
+- **Interfaz móvil responsiva** - Diseño optimizado para smartphones que replica la UX de TikTok
+- **Reproducción de videos** - Sistema de scroll infinito con reproducción automática
+- **Arquitectura fullstack** - Frontend y backend integrados en una sola aplicación Next.js
+- **API externa** - Integración con servicio externo para obtención de contenido de videos
+- **Experiencia fluida** - Navegación suave y transiciones similares a la aplicación original
+
+## 🛠️ Tecnologías Implementadas
+
+### Frontend
+- **Next.js** - Framework React con renderizado híbrido (SSR/SSG)
+- **TypeScript** - Tipado estático para mayor robustez del código
+- **Tailwind CSS** - Framework CSS utilitario para diseño rápido y responsivo
+- **React** - Biblioteca para construcción de interfaces de usuario
+
+### Backend
+- **Next.js API Routes** - Endpoints internos para comunicación con APIs externas
+- **RESTful API** - Arquitectura de servicios web para intercambio de datos
+
+### Herramientas de Desarrollo
+- **ESLint** - Linter para mantenimiento de calidad de código
+- **PostCSS** - Procesador de CSS para optimización
+- **Autoprefixer** - Añade prefijos CSS automáticamente para compatibilidad
+
+## 🏗️ Arquitectura del Proyecto
+
+```
+itok/
+├── pages/
+│   ├── api/          # Endpoints del backend
+│   │   └── videos/   # API para obtener videos externos
+│   ├── index.tsx     # Página principal
+│   └── _app.tsx      # Configuración global de la app
+├── components/       # Componentes React reutilizables
+├── styles/          # Archivos de estilos CSS
+├── public/          # Recursos estáticos
+├── types/           # Definiciones de tipos TypeScript
+└── utils/           # Funciones utilitarias
+```
+
+## 🔄 Cómo Funciona
+
+### Flujo de Datos
+1. **Frontend solicita videos** - El componente React principal realiza una petición al endpoint interno
+2. **Backend actúa como proxy** - La API Route de Next.js recibe la solicitud del frontend
+3. **Llamada a API externa** - El backend realiza una petición a la API externa que proporciona videos en formato TikTok
+4. **Procesamiento de datos** - Los datos se procesan y adaptan al formato requerido por el frontend
+5. **Respuesta al cliente** - Los videos se envían al frontend para su renderizado
+
+### Componentes Clave
+
+#### API Route (`/api/videos`)
+```typescript
+// Endpoint que maneja las solicitudes de videos
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Lógica para llamar a la API externa
+  // Procesamiento y formato de datos
+  // Respuesta al frontend
+}
+```
+
+#### Cliente Frontend
+```typescript
+// Hook o función que consume la API interna
+const fetchVideos = async () => {
+  const response = await fetch('/api/videos');
+  const videos = await response.json();
+  // Actualización del estado con los videos obtenidos
+};
+```
+
+## 📱 Características de la Interfaz
+
+- **Scroll Vertical Infinito** - Navegación continua entre videos
+- **Reproducción Automática** - Los videos se reproducen automáticamente al entrar en el viewport
+- **Controles de Video** - Play/pause, volumen, pantalla completa
+- **Información del Video** - Título, descripción, autor
+- **Diseño Mobile-First** - Optimizado principalmente para dispositivos móviles
+
+## 🚀 Instalación y Ejecución
+
+### Prerrequisitos
+- Node.js (versión 14 o superior)
+- npm, yarn o pnpm
+
+### Pasos de Instalación
+
+1. **Clonar el repositorio**
+```bash
+git clone https://github.com/voluspak/itok.git
+cd itok
+```
+
+2. **Instalar dependencias**
+```bash
+npm install
+# o
+yarn install
+# o
+pnpm install
+```
+
+3. **Configurar variables de entorno**
+```bash
+# Crear archivo .env.local con las configuraciones necesarias
+EXTERNAL_API_URL=tu_api_externa_aqui
+```
+
+4. **Ejecutar en modo desarrollo**
 ```bash
 npm run dev
-# or
+# o
 yarn dev
-# or
+# o
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. **Abrir en el navegador**
+   - Navegar a [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 🔧 Scripts Disponibles
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run dev      # Servidor de desarrollo
+npm run build    # Construcción para producción
+npm run start    # Servidor de producción
+npm run lint     # Análisis de código con ESLint
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 🌐 Despliegue
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Vercel (Recomendado)
+La forma más sencilla de desplegar esta aplicación Next.js es usando la [Plataforma Vercel](https://vercel.com/new).
 
-## Learn More
+### Otros Proveedores
+- **Netlify** - Para despliegues estáticos y serverless
+- **Railway** - Para aplicaciones fullstack
+- **Heroku** - Para despliegues en contenedores
 
-To learn more about Next.js, take a look at the following resources:
+## 📄 API Externa
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+El proyecto se integra con una API externa que proporciona videos en formato compatible con TikTok. La comunicación se realiza a través del endpoint interno que actúa como proxy, proporcionando:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Seguridad** - Ocultación de claves API del frontend
+- **Transformación** - Adaptación de datos al formato requerido
+- **Caching** - Posibilidad de implementar caché de respuestas
+- **Rate Limiting** - Control de límites de peticiones
 
-## Deploy on Vercel
+## 🤝 Contribuciones
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Las contribuciones son bienvenidas. Para contribuir:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Fork el proyecto
+2. Crea tu Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la Branch (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📝 Licencia
+
+Este proyecto está bajo la licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+## 👤 Autor
+
+**voluspak** - [GitHub Profile](https://github.com/voluspak)
+
+---
+
+⭐ Si este proyecto te ha sido útil, ¡no olvides darle una estrella en GitHub!
