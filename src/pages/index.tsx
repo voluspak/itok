@@ -8,7 +8,7 @@ import { type FC } from 'react'
 const Home: FC = () => {
   return (
     <>
-      <main className='overflow-hidden bg-black text-white max-w-sm w-full h-screen mx-auto relative text-xs'>
+      <main className='overflow-hidden bg-black text-white w-full h-screen mx-auto relative text-xs'>
         <VideoListContainer />
         <nav className='relative'>
           <ul className='flex justify-center items-center gap-3'>

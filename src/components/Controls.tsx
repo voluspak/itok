@@ -9,7 +9,7 @@ const profileLink: string = ''
 
 const Controls: React.FC = () => {
   return (
-    <ul className='absolute right-3 bottom-3 flex flex-col justify-end items-center gap-5'>
+    <ul className='absolute right-3 bottom-10 mb-5 flex flex-col justify-end items-center gap-3'>
       <li><ProfileControl profileLink={profileLink} /></li>
       <li><InteractionButtonPrototype Icon={LikeIcon} iconColor={ICONS_COLORS_REFERENCE.likeIcon}/></li>
       <li><CommentsControl /></li>
