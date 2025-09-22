@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 
 type IOCallback = IntersectionObserverCallback
 
@@ -20,13 +20,21 @@ const callback: IOCallback = (entries) => {
   }
 }
 
+type UseAutoPlay = [
+  React.RefObject<HTMLVideoElement>,
+  () => void,
+  () => void,
+  () => void,
+  boolean
+]
+
 const IOOptions = {
   root: null,
   rootMargin: '0px',
   threshold: 1.0
 }
 
-export const useAutoPlay = (): React.LegacyRef<HTMLVideoElement> => {
+export const useAutoPlay = (): UseAutoPlay => {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -42,5 +50,21 @@ export const useAutoPlay = (): React.LegacyRef<HTMLVideoElement> => {
     }
   }, [])
 
-  return videoRef
+  const [isPlaying, setIsPlaying] = useState(true)
+
+  const useTooglePlayPause = (): void => {
+    if (videoRef.current === null || videoRef.current === undefined) return
+    if (isPlaying) {
+      videoRef.current.pause()
+      setIsPlaying(false)
+    } else {
+      void videoRef.current.play()
+      setIsPlaying(true)
+    }
+  }
+
+  const handlePlay = (): void => { setIsPlaying(true) }
+  const handlePause = (): void => { setIsPlaying(false) }
+
+  return [videoRef, useTooglePlayPause, handlePlay, handlePause, isPlaying]
 }
