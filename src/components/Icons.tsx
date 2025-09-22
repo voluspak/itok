@@ -7,7 +7,7 @@ interface B extends L {
 }
 
 export const MagnifyingGlass: React.FC = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-7 h-7">
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-7 h-7 ">
     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
   </svg>
 )
@@ -26,9 +26,39 @@ export const LikeIcon: React.FC<L> = ({ className }) => (
 )
 
 export const CommentsIcon: React.FC = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden fill="white" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-12 h-12 active:animate-likeVideo text-black">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden viewBox="0 0 24 24" className="w-12 h-12 active:animate-likeVideo">
+  <path
+    fill="white"
+    fill-rule="evenodd"
+    d="
+      M21 12
+      C21 16.556 16.97 20.25 12 20.25
+      C10.878 20.25 9.8 20.084 8.82 19.756
+      C7.83 20.34 6.68 20.73 5.41 20.97
+      C5.11 21.02 4.91 20.73 5.04 20.45
+      C5.44 19.49 5.67 18.52 5.51 17.68
+      C3.93 16.178 3 14.189 3 12
+      C3 7.444 7.03 3.75 12 3.75
+      C16.97 3.75 21 7.444 21 12
+      Z
+
+      M8.625 12
+      a1 1 0 1 1 -2 0
+      a1 1 0 1 1 2 0
+      Z
+
+      M12.375 12
+      a1 1 0 1 1 -2 0
+      a1 1 0 1 1 2 0
+      Z
+
+      M16.5 12
+      a1 1 0 1 1 -2 0
+      a1 1 0 1 1 2 0
+      Z
+    "
+  />
+</svg>
 
 )
 
