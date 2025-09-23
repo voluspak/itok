@@ -1,5 +1,4 @@
 import BottomNav from '@/components/BottomNav'
-import Controls from '@/components/Controls'
 import { MagnifyingGlass } from '@/components/Icons'
 import VideoListContainer from '@/components/VideoListContainer'
 import Link from 'next/link'
@@ -18,7 +17,6 @@ const Home: FC = () => {
         <Link href={'/'} className='absolute -top-1 right-3 opacity-50'><MagnifyingGlass /></Link>
         </nav>
 
-        <Controls />
         <BottomNav />
       </main>
     </>

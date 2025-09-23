@@ -29,7 +29,7 @@ export const CommentsIcon: React.FC = () => (
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden viewBox="0 0 24 24" className="w-12 h-12 active:animate-likeVideo">
   <path
     fill="white"
-    fill-rule="evenodd"
+    fillRule="evenodd"
     d="
       M21 12
       C21 16.556 16.97 20.25 12 20.25

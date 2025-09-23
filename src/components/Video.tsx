@@ -1,13 +1,15 @@
 import { useAutoPlay } from '@/hooks/useAutoPlay'
+import Controls from './Controls'
+import { type TikTokVideo } from '@/types'
 
 interface VideoProps {
-  src: string
+  video: TikTokVideo
 }
-const Video: React.FC<VideoProps> = ({ src }) => {
+const Video: React.FC<VideoProps> = ({ video }) => {
   const [videoRef, useTooglePlayPause, handlePlay, handlePause, isPlaying] = useAutoPlay()
 
   return (
-    <div className="mb-14 snap-start h-video flex justify-center items-center">
+    <div className="mb-14 snap-start h-video flex justify-center items-center relative">
       <video autoPlay loop controls={false} className="h-video" ref={videoRef}
         muted
         playsInline
@@ -16,9 +18,9 @@ const Video: React.FC<VideoProps> = ({ src }) => {
         onPause={handlePause}
       >
         Not supported
-        <source src={src} type="video/mp4" />
+        <source src={video.play} type="video/mp4" />
       </video>
-
+      <Controls videoInfo={video}/>
       {
         !isPlaying && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

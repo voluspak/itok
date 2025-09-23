@@ -1,14 +1,15 @@
-import { useInteraction } from '@/hooks/useInteraction'
+import { useInteraction, type UseInteractionProps } from '@/hooks/useInteraction'
 import { ICONS_COLORS } from '@/const'
 
 interface InteractionButtonProps {
   Icon: React.ElementType
-  iconColor: string
+  iconColor?: string
   fill?: boolean
+  initialValue?: UseInteractionProps['initialValue']
 }
 
-const InteractionButtonPrototype: React.FC<InteractionButtonProps> = ({ Icon, iconColor, fill = false }) => {
-  const { onInteraction, interaction, interactionCount } = useInteraction()
+const InteractionButtonPrototype: React.FC<InteractionButtonProps> = ({ Icon, iconColor = ICONS_COLORS.INACTIVE_DEFAULT, fill = false, initialValue = 0 }) => {
+  const { onInteraction, interaction, interactionCount } = useInteraction({ initialValue })
   return (
     <>
       <button

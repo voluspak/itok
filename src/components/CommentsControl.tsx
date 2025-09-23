@@ -2,13 +2,18 @@ import { useState } from 'react'
 import { CloseIcon, CommentsIcon, DislikeIcon, LikeIcon } from './Icons'
 import Image from 'next/image'
 import { useInteraction } from '@/hooks/useInteraction'
+import { COMMENTS } from '@/const'
 
 interface ListProps {
   toggleComments: () => void
   isOpen: boolean
 }
 
-const CommentsControl: React.FC = () => {
+interface CommentsControlProps {
+  commentsCounter: number
+}
+
+const CommentsControl: React.FC<CommentsControlProps> = ({ commentsCounter }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleComments = (): void => { setIsOpen(!isOpen) }
@@ -17,8 +22,9 @@ const CommentsControl: React.FC = () => {
     <>
       <button onClick={toggleComments}>
         <CommentsIcon />
+        <span>{commentsCounter}</span>
       </button>
-      <ListOfComments toggleComments={toggleComments} isOpen={isOpen}/>
+      <ListOfComments toggleComments={toggleComments} isOpen={isOpen} />
   </>
   )
 }
@@ -32,75 +38,6 @@ const ListOfComments: React.FC<ListProps> = ({ toggleComments, isOpen }) => {
     label: 'Example',
     link: 'https://github.com/voluspak'
   }
-
-  const COMMENTS = [
-    {
-      id: 1,
-      profile: {
-        link: 'https://github.com/voluspak',
-        avatar: 'https://p16-amd-va.tiktokcdn.com/img/tos-maliva-avt-0068/3ad69a1807d5ae8c1764411e3f6d1316~c5_720x720.jpeg',
-        name: 'IvanChoooo'
-      },
-      comment: 'Un jugoso zumo de piña y kiwi bien frío es exquisito y no lleva alcohol.',
-      time: '2d',
-      likes: 441
-    },
-    {
-      id: 2,
-      profile: {
-        link: 'https://github.com/voluspak',
-        avatar: 'https://p16-amd-va.tiktokcdn.com/img/tos-maliva-avt-0068/3ad69a1807d5ae8c1764411e3f6d1316~c5_720x720.jpeg',
-        name: 'IvanChoooo'
-      },
-      comment: 'Jovencillo emponzoñado de whisky: ¡Qué figurota exhibe!',
-      time: '2d',
-      likes: 441
-    },
-    {
-      id: 3,
-      profile: {
-        link: 'https://github.com/voluspak',
-        avatar: 'https://p16-amd-va.tiktokcdn.com/img/tos-maliva-avt-0068/3ad69a1807d5ae8c1764411e3f6d1316~c5_720x720.jpeg',
-        name: 'IvanChoooo'
-      },
-      comment: 'Benjamín pidió una bebida de kiwi y fresa. Noé, sin vergüenza, la más exquisita champaña del menú',
-      time: '2d',
-      likes: 441
-    },
-    {
-      id: 4,
-      profile: {
-        link: 'https://github.com/voluspak',
-        avatar: 'https://p16-amd-va.tiktokcdn.com/img/tos-maliva-avt-0068/3ad69a1807d5ae8c1764411e3f6d1316~c5_720x720.jpeg',
-        name: 'IvanChoooo'
-      },
-      comment: 'Un jugoso zumo de piña y kiwi bien frío es exquisito y no lleva alcohol.',
-      time: '2d',
-      likes: 441
-    },
-    {
-      id: 5,
-      profile: {
-        link: 'https://github.com/voluspak',
-        avatar: 'https://p16-amd-va.tiktokcdn.com/img/tos-maliva-avt-0068/3ad69a1807d5ae8c1764411e3f6d1316~c5_720x720.jpeg',
-        name: 'IvanChoooo'
-      },
-      comment: 'Benjamín pidió una bebida de kiwi y fresa. Noé, sin vergüenza, la más exquisita champaña del menú',
-      time: '2d',
-      likes: 441
-    },
-    {
-      id: 6,
-      profile: {
-        link: 'https://github.com/voluspak',
-        avatar: 'https://p16-amd-va.tiktokcdn.com/img/tos-maliva-avt-0068/3ad69a1807d5ae8c1764411e3f6d1316~c5_720x720.jpeg',
-        name: 'IvanChoooo'
-      },
-      comment: 'Un jugoso zumo de piña y kiwi bien frío es exquisito y no lleva alcohol.',
-      time: '2d',
-      likes: 441
-    }
-  ]
 
   const likesCount = 317
 

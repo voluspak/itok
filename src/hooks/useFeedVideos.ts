@@ -7,8 +7,7 @@ const useFeedVideos = (): TikTokVideo[] => {
   const [videos, setVideos] = useState<TikTokVideo[]>([])
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-    const fetchVideos = async () => {
+    const fetchVideos = async (): Promise<void> => {
       try {
         const response = await fetch(url)
 
