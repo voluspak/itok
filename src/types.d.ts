@@ -66,3 +66,15 @@ export interface Author {
   nickname: string
   avatar: string
 }
+
+export interface VideoDetail {
+  like_count?: number
+  comment_count?: number
+  view_count?: number
+}
+export interface Comment {
+  cid?: string
+  comment_id?: string
+  text?: string
+  user?: { nickname?: string, unique_id?: string }
+}
