@@ -79,5 +79,35 @@ export const COMMENTS = [
   }
 ]
 
-export const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes in milliseconds
-export const VIDEO_POOL_SIZE = 20
+// API Configuration
+export const RAPIDAPI_HOST: string = 'tiktok-scraper7.p.rapidapi.com'
+export const RAPIDAPI_BASE_URL: string = `https://${RAPIDAPI_HOST}`
+export const API_ENDPOINT: string = '/api/hello'
+
+// Cache Configuration
+export const CACHE_DURATION: number = 5 * 60 * 1000 // 5 minutes in milliseconds
+export const DEFAULT_TTL: number = 60 * 1000 // 1 minute in milliseconds
+export const DEFAULT_TTL_MS: number = 30 * 1000 // 30 seconds in milliseconds
+export const VIDEO_POOL_SIZE: number = 20
+export const MIN_CACHE_SIZE: number = 5 // Minimum videos in cache before calling API
+
+// API Actions
+export const API_ACTIONS = {
+  LIST: 'list',
+  DETAIL: 'detail',
+  COMMENTS: 'comments'
+} as const
+
+export type ApiAction = typeof API_ACTIONS[keyof typeof API_ACTIONS]
+
+// Regions
+export const REGIONS = ['us', 'gb', 'ca', 'au', 'de', 'fr', 'it', 'es'] as const
+
+export type Region = typeof REGIONS[number]
+
+// Viewport (Mobile dimensions - iPhone 14 Pro Max)
+export const MOBILE_WIDTH = 430
+export const MOBILE_HEIGHT = 932
+
+// Styles
+export const BOTTOM_NAV_ITEMS_STYLE: string = 'flex flex-col justify-center items-center'

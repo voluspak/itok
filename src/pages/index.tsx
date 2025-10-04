@@ -1,13 +1,22 @@
 import BottomNav from '@/components/BottomNav'
 import { MagnifyingGlass } from '@/components/Icons'
 import VideoListContainer from '@/components/VideoListContainer'
+import MobileWarningModal from '@/components/MobileWarningModal'
 import Link from 'next/link'
+import Head from 'next/head'
 import { type FC } from 'react'
 
 const Home: FC = () => {
   return (
     <>
-      <main className='overflow-hidden bg-black text-white w-full h-screen mx-auto relative text-xs'>
+      <Head>
+        <title>iTok - TikTok Clone</title>
+        <meta name="description" content="TikTok clone built with Next.js" />
+      </Head>
+
+      <MobileWarningModal />
+
+      <main className='overflow-hidden bg-black text-white w-full max-w-[430px] h-screen mx-auto relative text-xs'>
         <VideoListContainer />
         <nav className='relative mt-5'>
           <ul className='flex justify-center items-center gap-3 text-base font-medium'>

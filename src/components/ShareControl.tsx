@@ -1,12 +1,10 @@
 import React from 'react'
-import InteractionButton from './InteractionButton'
+import InteractionButtonPrototype from './InteractionButtonPrototye'
 import { ShareIcon } from './Icons'
 
 const ShareControl: React.FC = () => {
   return (
-      <InteractionButton>
-        <ShareIcon />
-      </InteractionButton>
+      <InteractionButtonPrototype Icon={ShareIcon} />
   )
 }
 

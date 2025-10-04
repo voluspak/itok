@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { ChatIcon, FriendsIcon, HomeIcon, PlusIcon, UserIcon } from './Icons'
-
-const BOTTOM_NAV_ITEMS_STYLE = 'flex flex-col justify-center items-center'
+import { BOTTOM_NAV_ITEMS_STYLE } from '@/const'
 
 const BottomNav: React.FC = () => {
   return (

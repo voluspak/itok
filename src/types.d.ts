@@ -1,14 +1,11 @@
-export interface TikTokApiResponse {
-  code: number
-  msg: string
-  processed_time: number
-  data: TikTokVideo[]
-}
-
 export interface MyApiResponse {
   success: boolean
+  action: string
+  source?: 'cache' | 'api'
   count: number
-  processed_time: number
+  cache_size?: number
+  cache_age?: number
+  message?: string
   videos: TikTokVideo[]
 }
 
@@ -71,10 +68,20 @@ export interface VideoDetail {
   like_count?: number
   comment_count?: number
   view_count?: number
+  share_count?: number
+  play_count?: number
+  digg_count?: number
 }
+
 export interface Comment {
   cid?: string
   comment_id?: string
   text?: string
-  user?: { nickname?: string, unique_id?: string }
+  user?: {
+    nickname?: string
+    unique_id?: string
+    avatar?: string
+  }
+  create_time?: number
+  digg_count?: number
 }

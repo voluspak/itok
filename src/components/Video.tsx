@@ -8,6 +8,7 @@ interface VideoProps {
 const Video: React.FC<VideoProps> = ({ video }) => {
   const [videoRef, useTooglePlayPause, handlePlay, handlePause, isPlaying] = useAutoPlay()
 
+
   return (
     <div className="mb-14 snap-start h-video flex justify-center items-center relative">
       <video autoPlay loop controls={false} className="h-video" ref={videoRef}
@@ -20,7 +21,7 @@ const Video: React.FC<VideoProps> = ({ video }) => {
         Not supported
         <source src={video.play} type="video/mp4" />
       </video>
-      <Controls videoInfo={video}/>
+      <Controls videoInfo={video} />
       {
         !isPlaying && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
